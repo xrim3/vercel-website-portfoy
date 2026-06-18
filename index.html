@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emir Gülşen — Photography</title>
+  <meta name="description" content="Photography portfolio — Portrait, Street, Commercial" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">EG</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="hero-eyebrow">Istanbul — Photography</p>
+    <h1 class="hero-title">
+      Images that<br /><em>stay with you.</em>
+    </h1>
+    <p class="hero-sub">Portrait · Street · Commercial</p>
+  </header>
+
+  <!-- FILTER -->
+  <section class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="portrait">Portrait</button>
+    <button class="filter-btn" data-filter="street">Street</button>
+    <button class="filter-btn" data-filter="commercial">Commercial</button>
+  </section>
+
+  <!-- PROJECTS -->
+  <main class="projects" id="work">
+
+    <article class="project-card" data-category="portrait">
+      <div class="card-img-wrap">
+        <img src="images/portrait-01.jpg" alt="Portrait series — natural light" loading="lazy" />
+        <div class="card-overlay">
+          <span class="card-cta">View Project ↗</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span class="card-tag">Portrait</span>
+        <h2 class="card-title">Natural Light Series</h2>
+      </div>
+    </article>
+
+    <article class="project-card" data-category="street">
+      <div class="card-img-wrap">
+        <img src="images/street-01.jpg" alt="Street — Istanbul Beyoğlu" loading="lazy" />
+        <div class="card-overlay">
+          <span class="card-cta">View Project ↗</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span class="card-tag">Street</span>
+        <h2 class="card-title">Beyoğlu Fragments</h2>
+      </div>
+    </article>
+
+    <article class="project-card" data-category="commercial">
+      <div class="card-img-wrap">
+        <img src="images/commercial-01.jpg" alt="Commercial — product campaign" loading="lazy" />
+        <div class="card-overlay">
+          <span class="card-cta">View Project ↗</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span class="card-tag">Commercial</span>
+        <h2 class="card-title">Campaign — 2024</h2>
+      </div>
+    </article>
+
+    <article class="project-card" data-category="portrait">
+      <div class="card-img-wrap">
+        <img src="images/portrait-02.jpg" alt="Portrait — editorial" loading="lazy" />
+        <div class="card-overlay">
+          <span class="card-cta">View Project ↗</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span class="card-tag">Portrait</span>
+        <h2 class="card-title">Editorial — Vol. II</h2>
+      </div>
+    </article>
+
+    <article class="project-card" data-category="street">
+      <div class="card-img-wrap">
+        <img src="images/street-02.jpg" alt="Street — golden hour" loading="lazy" />
+        <div class="card-overlay">
+          <span class="card-cta">View Project ↗</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span class="card-tag">Street</span>
+        <h2 class="card-title">Golden Hour, Karaköy</h2>
+      </div>
+    </article>
+
+    <article class="project-card" data-category="commercial">
+      <div class="card-img-wrap">
+        <img src="images/commercial-02.jpg" alt="Commercial — brand shoot" loading="lazy" />
+        <div class="card-overlay">
+          <span class="card-cta">View Project ↗</span>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span class="card-tag">Commercial</span>
+        <h2 class="card-title">Brand Identity Shoot</h2>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <p class="contact-eyebrow">Let's work together</p>
+      <h2 class="contact-headline">
+        Got a project<br />in mind?
+      </h2>
+      <a href="mailto:hello@emirgulsen.com" class="contact-email">hello@emirgulsen.com</a>
+      <div class="contact-links">
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="contact-ticker">
+      <span>Create — Capture — Connect — Create — Capture — Connect — Create — Capture — Connect —&nbsp;</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2026 Emir Gülşen</span>
+    <span>Istanbul, Türkiye</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
