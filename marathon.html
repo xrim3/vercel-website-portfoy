@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Istanbul Half Marathon — Emir Gülşen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── PROJECT PAGE SPECIFIC ── */
+    .project-hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 60px 40px;
+    }
+    .project-hero-img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .project-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .project-hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+    }
+    .project-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .project-hero-content .card-tag {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      background: rgba(255,255,255,0.08);
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .project-desc {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: rgba(242,242,240,0.6);
+      max-width: 480px;
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      padding: 4px 40px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .gallery-item {
+      width: 100%;
+      overflow: hidden;
+      background: #111;
+      cursor: pointer;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-item:hover img { transform: scale(1.03); }
+
+    /* First image taller */
+    .gallery-item:first-child img { aspect-ratio: 16/9; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--white); }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--dim);
+      cursor: pointer;
+      padding: 20px;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    .lightbox-nav:hover { color: var(--white); }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--dim);
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      padding: 40px 40px 0;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--white); }
+
+    @media (max-width: 768px) {
+      .project-hero { padding: 40px 20px; }
+      .gallery { padding: 4px 20px 0; }
+      .back-link { padding: 30px 20px 0; }
+      .lightbox-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">EG</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <div class="project-hero-img">
+      <img src="images/marathon-01.jpg" alt="Istanbul Half Marathon" />
+    </div>
+    <div class="project-hero-content">
+      <span class="card-tag">Street · Event</span>
+      <h1 class="project-title">Istanbul<br />Half Marathon</h1>
+      <p class="project-desc">
+        The city as a stage. Thousands of runners cutting through Istanbul's streets —
+        motion, exhaustion, and the quiet triumph of crossing the line.
+      </p>
+    </div>
+  </section>
+
+  <!-- BACK -->
+  <a href="index.html" class="back-link">← All Projects</a>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="gallery-item" data-index="0">
+      <img src="images/marathon-01.jpg" alt="Istanbul Half Marathon — 01" loading="lazy" />
+    </div>
+    <div class="gallery-item" data-index="1">
+      <img src="images/marathon-02.jpg" alt="Istanbul Half Marathon — 02" loading="lazy" />
+    </div>
+    <div class="gallery-item" data-index="2">
+      <img src="images/marathon-03.jpg" alt="Istanbul Half Marathon — 03" loading="lazy" />
+    </div>
+    <div class="gallery-item" data-index="3">
+      <img src="images/marathon-04.jpg" alt="Istanbul Half Marathon — 04" loading="lazy" />
+    </div>
+    <div class="gallery-item" data-index="4">
+      <img src="images/marathon-05.jpg" alt="Istanbul Half Marathon — 05" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">Close ✕</span>
+    <span class="lightbox-nav lightbox-prev" id="lb-prev">‹</span>
+    <img src="" alt="" id="lightbox-img" />
+    <span class="lightbox-nav lightbox-next" id="lb-next">›</span>
+    <span class="lightbox-counter" id="lb-counter">1 / 5</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" style="margin-top: 80px;">
+    <span>© 2026 Emir Gülşen</span>
+    <span>Istanbul, Türkiye</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Lightbox
+    const images = [
+      'images/marathon-01.jpg',
+      'images/marathon-02.jpg',
+      'images/marathon-03.jpg',
+      'images/marathon-04.jpg',
+      'images/marathon-05.jpg',
+    ];
+    let current = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbCounter = document.getElementById('lb-counter');
+
+    function openLightbox(index) {
+      current = index;
+      lbImg.src = images[current];
+      lbCounter.textContent = `${current + 1} / ${images.length}`;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function navigate(dir) {
+      current = (current + dir + images.length) % images.length;
+      lbImg.src = images[current];
+      lbCounter.textContent = `${current + 1} / ${images.length}`;
+    }
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index)));
+    });
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('lb-next').addEventListener('click', () => navigate(1));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
+</body>
+</html>
